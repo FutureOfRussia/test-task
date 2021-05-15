@@ -30,17 +30,16 @@ export default function BounceButton({
   }))
 
   const onPressIn = async () => {
-    if (haptic) await Haptics.selectionAsync()
     scale.value = 0.96
   }
 
   const onPressOut = async () => {
-    if (haptic) await Haptics.selectionAsync()
     scale.value = 1
   }
 
   const onClickHandler = () => {
-    setTimeout(() => {
+    setTimeout(async () => {
+      if (haptic) await Haptics.selectionAsync()
       if (debounce) DeviceEventEmitter.emit('onClick', onPress)
       else onPress()
     }, 100)

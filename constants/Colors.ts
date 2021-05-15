@@ -1,28 +1,22 @@
-const tintColorLight = '#2f95dc'
-const tintColorDark = '#fff'
-
 export default {
-  light: {
-    text: '#000',
-    background: '#fff',
-    tint: tintColorLight,
-    tabIconDefault: '#ccc',
-    tabIconSelected: tintColorLight,
-    reverseBackground: '#000',
-  },
-  dark: {
-    text: '#fff',
-    background: '#000',
-    tint: tintColorDark,
-    tabIconDefault: '#ccc',
-    tabIconSelected: tintColorDark,
-    reverseBackground: '#fff',
-  },
-  LINK: '#2e78b7',
   TRANSPARENT: 'transparent',
   WHITE: '#FFFFFF',
   BLACK: '#000000',
   GRAY: '#EEEEEE',
+  DARK_GRAY: '#A1A9B5',
+  SOFT_GRAY: '#E5E5E5',
+  SECONDARY: '#818894',
+  GREEN: '#3FC27B',
+  PINK: '#FF558B',
+  ACTIVE: '#0684F8',
+  TEXT: '#454A52',
+  levels: {
+    none: '#C6CAD0',
+    easy: '#FFCE51',
+    middle: '#FFA73F',
+    strong: '#FC7E56',
+    unbearable: '#FC5656',
+  },
   white: (opacity = 1): string => `rgba(255, 255, 255, ${opacity})`,
   black: (opacity = 1): string => `rgba(0, 0, 0, ${opacity})`,
   rgb: (r = 0, g = 0, b = 0): string => `rgb(${r}, ${g}, ${b})`,

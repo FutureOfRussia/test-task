@@ -1,29 +1,35 @@
 export default {
   titles: {
-    notFound: 'Oops!',
-    tabOne: 'Tab One',
-    tabTwo: 'Tab Two',
-    tabOneTitle: 'Tab One Title',
-    tabTwoTitle: 'Tab Two Title',
+    diary: 'Diary',
+    filling: 'Fill in the diary',
   },
-  updateBanner: {
-    title: 'Application Update',
-    subtitle: 'A new version of the application is available',
-    loading: 'Downloading update,\nwait...',
-    load: 'Loading',
-    done: 'Done,\nreload the application',
-    reload: 'Reload',
-    update: 'Install now',
+  back: 'Back',
+  mood: 'Mood',
+  anxiety: 'Anxiety',
+  stress: 'Stress',
+  anxietyLevel: 'Anxiety level',
+  stressLevel: 'Stress level',
+  moods: {
+    happy: 'Joyful',
+    sad: 'Sad',
+    depressed: 'Suppressed',
+    calm: 'Calm',
+    swings: 'Mood swings',
   },
-  notFound: {
-    title: "This screen doesn't exist.",
-    navigate: 'Go to home screen!',
+  anxieties: {
+    none: 'Absent',
+    easy: 'Easy',
+    middle: 'Middle',
+    strong: 'Strong',
+    unbearable: 'Unbearable',
   },
-  editScreenInfo: {
-    body: [
-      'Open up the code for this screen:',
-      'Change any of the text, save the file, and your app will automatically update.',
-    ],
-    tap: "Tap here if your app doesn't automatically update after making changes",
+  level: {
+    none: 'Absent',
+    easy: 'Easy',
+    middle: 'Middle',
+    strong: 'Strong',
+    unbearable: 'Unbearable',
   },
+  save: 'Save',
+  success: 'Diary saved successfully!',
 }

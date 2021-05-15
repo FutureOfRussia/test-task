@@ -1,15 +1,12 @@
 import Animated, { Easing, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated'
+import { Pressable, View, Text } from 'react-native'
 import React, { useEffect, useState } from 'react'
-import { Pressable, View } from 'react-native'
 import { mix } from 'react-native-redash'
 
 import { Notification } from '../../types/Support'
 import { px } from '../../helpers/Dimensions'
-import { useThemeColor } from '../../hooks'
 import BounceButton from '../BounceButton'
-import { Colors } from '../../constants'
 import styles from './styles'
-import Text from '../Text'
 
 let listener: { setShow: (value: boolean) => void; setNotification: (value: Notification) => void } | null = null
 let processing = false
@@ -44,7 +41,7 @@ const process = () => {
     timer = setTimeout(() => {
       setShow(false)
       setTimeout(process, 500)
-    }, 7250)
+    }, 15250)
   } else {
     processing = false
   }
@@ -75,8 +72,6 @@ export function LocaleNotification() {
   })
   const animated = useSharedValue(0)
 
-  const backgroundColor = useThemeColor({}, 'reverseBackground')
-
   useEffect(() => {
     listener = { setNotification, setShow: setShowValue }
     return () => {
@@ -96,11 +91,9 @@ export function LocaleNotification() {
 
   return (
     <Animated.View style={[styles.container, animatedStyle]}>
-      <Pressable style={[styles.content, { backgroundColor }]} onPress={close}>
+      <Pressable style={styles.content} onPress={close}>
         <View style={styles.textBlock}>
-          <Text lightColor={Colors.WHITE} darkColor={Colors.BLACK} style={styles.text}>
-            {notification.msg}
-          </Text>
+          <Text style={styles.text}>{notification.msg}</Text>
         </View>
         {!!notification.action && (
           <View style={styles.btnBlock}>

@@ -11,7 +11,7 @@ export default StyleSheet.create({
     top: 0,
     width: '100%',
     paddingHorizontal: px(16),
-    ...shadow({ shadowOpacity: 1, elevation: 1 }),
+    ...shadow({ shadowOpacity: 0.4, elevation: 1 }),
   },
   content: {
     flex: 1,
@@ -20,6 +20,9 @@ export default StyleSheet.create({
     paddingBottom: px(10),
     paddingRight: px(10),
     borderRadius: px(5),
+    borderWidth: px(1),
+    borderColor: Colors.SOFT_GRAY,
+    backgroundColor: Colors.WHITE,
     overflow: 'hidden',
   },
   textBlock: {
@@ -27,13 +30,16 @@ export default StyleSheet.create({
     paddingBottom: px(10),
   },
   text: {
-    fontSize: px(16),
+    fontFamily: 'Regular',
+    fontSize: px(14),
+    color: Colors.TEXT,
   },
   btnBlock: {
     alignItems: 'flex-end',
   },
   btnText: {
-    fontSize: px(16),
-    color: Colors.LINK,
+    fontFamily: 'Regular',
+    fontSize: px(14),
+    color: Colors.ACTIVE,
   },
 })

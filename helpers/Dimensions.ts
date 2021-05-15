@@ -1,4 +1,4 @@
-import { Dimensions } from 'react-native'
+import Layout from '../constants/Layout'
 
 const handleSize = (num: number): number => {
   'worklet'
@@ -9,8 +9,8 @@ const handleSize = (num: number): number => {
   return num / 100
 }
 
-const myWidth = Dimensions.get('window').width
-const myHeight = Dimensions.get('window').height
+const myWidth = Layout.window.width
+const myHeight = Layout.window.height
 
 export const width = (num: number): number => {
   'worklet'
@@ -26,5 +26,5 @@ export const height = (num: number): number => {
 export const px = (num: number): number => {
   'worklet'
 
-  return num * (width(1) / 4.14)
+  return num * (width(1) / 3.2)
 }
