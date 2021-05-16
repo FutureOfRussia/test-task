@@ -44,6 +44,7 @@ export default function Navigation(): JSX.Element {
       color: Colors.TEXT,
       paddingHorizontal: px(5),
     },
+    gestureResponseDistance: { horizontal: px(12) },
     headerTruncatedBackTitle: back,
     headerTintColor: Colors.ACTIVE,
     headerStyleInterpolator: HeaderStyleInterpolators.forUIKit,

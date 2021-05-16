@@ -41,7 +41,7 @@ const process = () => {
     timer = setTimeout(() => {
       setShow(false)
       setTimeout(process, 500)
-    }, 15250)
+    }, 7250)
   } else {
     processing = false
   }

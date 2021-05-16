@@ -25,7 +25,9 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.futureofrussiaguest.testtask",
+      "versionCode": 1
     },
     "web": {
       "favicon": "./assets/images/favicon.png"
