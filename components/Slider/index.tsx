@@ -9,7 +9,7 @@ import Animated, {
 } from 'react-native-reanimated'
 import { PanGestureHandler } from 'react-native-gesture-handler'
 import { snapPoint } from 'react-native-redash'
-import { Pressable, View } from 'react-native'
+import { Pressable } from 'react-native'
 import React from 'react'
 import _ from 'lodash'
 
@@ -61,25 +61,29 @@ export default function Slider({ value = 0, onSelect = () => {} }: SliderProps) 
     return { transform: [{ translateX: withSpring(x.value, { damping: 50, mass: 2, stiffness: 250 }) }] }
   })
 
-  const indicatorScale = useAnimatedStyle(() => {
-    return { transform: [{ scale: scale.value }] }
+  const indicatorStyle = useAnimatedStyle(() => {
+    return {
+      transform: [{ scale: scale.value }],
+      backgroundColor: (x.value + offset) / step > 0 ? colors[(x.value + offset) / step - 1] : Colors.ACTIVE,
+    }
   })
 
   return (
     <Animated.View style={styles.container}>
-      {_.range(4).map(i => (
-        <View style={[styles.dash, { backgroundColor: value > i ? colors[i] : Colors.SOFT_GRAY }]} key={i} />
-      ))}
+      {_.range(4).map(i => {
+        'worklet'
+
+        // eslint-disable-next-line react-hooks/rules-of-hooks
+        const dashStyle = useAnimatedStyle(() => {
+          return { backgroundColor: (x.value + offset) / step > i ? colors[i] : Colors.SOFT_GRAY }
+        })
+
+        return <Animated.View style={[styles.dash, dashStyle]} key={i} />
+      })}
       <PanGestureHandler onGestureEvent={onPanGestureEvent}>
         <Animated.View style={[styles.indicatorBlock, position]}>
           <Pressable onPressIn={onPressIn} onPress={onPressOut} style={[Styles.full, Styles.centered]}>
-            <Animated.View
-              style={[
-                styles.indicator,
-                indicatorScale,
-                { backgroundColor: value > 0 ? colors[value - 1] : Colors.ACTIVE },
-              ]}
-            />
+            <Animated.View style={[styles.indicator, indicatorStyle]} />
           </Pressable>
         </Animated.View>
       </PanGestureHandler>
